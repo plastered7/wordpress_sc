@@ -1,7 +1,7 @@
 #!bin/bash
 sudo echo "CREATE DATABASE wordpressdb;" | mysql
-sudo echo "CREATE USER wordpressuser@localhost IDENTIFIED BY 'wordpresspassword';" | mysql
-sudo echo "GRANT ALL PRIVILEGES ON wordpressdb.* TO wordpressuser@localhost; FLUSH PRIVILEGES;" | mysql
+sudo echo "CREATE USER wordpressuser@localhost IDENTIFIED BY 'wordpresspassword';" | mysql -u root -p
+sudo echo "GRANT ALL PRIVILEGES ON wordpressdb.* TO wordpressuser@localhost; FLUSH PRIVILEGES;" | mysql -u root -p
 cd /tmp
 wget http://wordpress.org/latest.zip
 sudo unzip -q latest.zip -d /var/www/html/
