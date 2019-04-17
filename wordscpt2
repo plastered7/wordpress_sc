@@ -1,0 +1,13 @@
+#!bin/bash
+echo "CREATE DATABASE wordpressdb;" | mysql
+echo "CREATE USER wordpressuser@localhost IDENTIFIED BY 'wordpresspassword';" | mysql
+echo "RANT ALL PRIVILEGES ON wordpressdb.* TO wordpressuser@localhost; FLUSH PRIVILEGES;" | mysql
+cd /tmp
+wget http://wordpress.org/latest.zip
+sudo unzip -q latest.zip -d /var/www/html/
+sudo chown -R www-data:www-data /var/www/html/wordpress
+sudo chmod -R 755 /var/www/html/wordpress
+sudo mkdir -p /var/www/html/wordpress/wp-content/uploads
+sudo chown -R www-data:www-data /var/www/html/wordpress/wp-content/uploads 
+sudo service apache2 restart
+sudo apt-get install php7.0-mysql
