@@ -4,9 +4,9 @@ sudo apt-get install tasksel mc zip -y
 sudo tasksel install lamp-server
 mysql -u root -p
 exit
-echo "CREATE DATABASE wordpressdb;" | mysql
-echo "CREATE USER wordpressuser@localhost IDENTIFIED BY 'wordpresspassword';" | mysql
-echo "RANT ALL PRIVILEGES ON wordpressdb.* TO wordpressuser@localhost; FLUSH PRIVILEGES;" | mysql
+sudo echo "CREATE DATABASE wordpressdb;" | mysql
+sudo echo "CREATE USER wordpressuser@localhost IDENTIFIED BY 'wordpresspassword';" | mysql
+sudo echo "RANT ALL PRIVILEGES ON wordpressdb.* TO wordpressuser@localhost; FLUSH PRIVILEGES;" | mysql
 cd /tmp
 wget http://wordpress.org/latest.zip
 sudo unzip -q latest.zip -d /var/www/html/
